@@ -8,7 +8,7 @@ namespace libnettools
 {
 	public class dns
 	{
-
+        //
 		public static string[] getIP (string hostname)
 		{
 
