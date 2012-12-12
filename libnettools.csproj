@@ -33,8 +33,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="cidr.cs" />
     <Compile Include="icmp.cs" />
-    <Compile Include="libnettools.cs" />
+    <Compile Include="dns.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
