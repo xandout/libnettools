@@ -1,3 +1,0 @@
-C:\Users\mturner\Documents\Visual Studio 2010\Projects\libnettools\libnettools\bin\Release\libnettools.dll
-C:\Users\mturner\Documents\Visual Studio 2010\Projects\libnettools\libnettools\obj\Release\ResolveAssemblyReference.cache
-C:\Users\mturner\Documents\Visual Studio 2010\Projects\libnettools\libnettools\obj\Release\libnettools.dll
