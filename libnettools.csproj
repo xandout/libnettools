@@ -32,7 +32,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="IDE\AssemblyInfo.cs" />
     <Compile Include="cidr.cs" />
     <Compile Include="icmp.cs" />
     <Compile Include="dns.cs" />
