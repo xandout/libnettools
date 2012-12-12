@@ -1,0 +1,113 @@
+using System;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Collections.Generic;
+using System.Text;
+
+namespace libnettools
+{
+	public class dns
+	{
+
+		public static string[] getIP (string hostname)
+		{
+
+
+			try{
+				IPAddress[] ips;
+				ips = Dns.GetHostAddresses(hostname);
+				int ArraySize = ips.Length;
+				string[] addresses = new string[ArraySize];
+				int x = 0;
+				foreach (IPAddress ip in ips)
+				    {
+				        
+						addresses[x] = Convert.ToString(ip);
+						x = x + 1;
+					}
+				return addresses;
+				}
+			catch(System.Exception e){
+				string[] err = new string[3];
+				err[0] = e.Message;
+				return err;
+			}
+
+		}
+
+		public static string[] rDNS(string hostname)
+		{
+		    try{
+
+				IPHostEntry host;
+
+			    host = Dns.GetHostEntry(hostname);
+
+			    
+				string[] hosts = new string[1];
+				int x = 0;
+			    foreach (IPAddress ip in host.AddressList)
+				    {
+						hosts[x] = host.HostName;
+						x = x + 1;
+				    }
+				return hosts;
+			}
+			catch(System.Exception e){
+				string[] err = new string[1];
+				err[0] = e.Message;
+				return err;
+
+			}
+		}
+	}
+
+
+	public class icmp
+	{
+		public static string[] ping (string host)
+		{
+            try
+            {
+                Ping pingSender = new Ping();
+                PingOptions options = new PingOptions();
+
+                // Use the default Ttl value which is 128, e
+                // but change the fragmentation behavior.
+                options.DontFragment = true;
+
+
+                // Create a buffer of 32 bytes of data to be transmitted. 
+                string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                byte[] buffer = Encoding.ASCII.GetBytes(data);
+                int timeout = 120;
+                PingReply reply = pingSender.Send(host, timeout, buffer, options);
+                string[] ping = new string[2];
+                if (reply.Status == IPStatus.Success)
+                {
+
+
+                    ping[0] = reply.RoundtripTime.ToString();
+                    ping[1] = reply.Options.Ttl.ToString();
+
+                }
+                else { ping[0] = "Error"; }
+
+                return ping;
+            }
+            catch
+            {
+                string[] err = new string[1];
+                err[0] = "Error\n Possibly you entered a malformed IP or domain.";
+                return err;
+            }
+		}
+	}
+
+
+    public class cidr
+    {
+
+    }
+}
+
