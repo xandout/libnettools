@@ -13,5 +13,19 @@ namespace libnettools
             network[0] = "Not Implemented";
             return network;
         }
+        
+        public static string[] getBcast(string ipaddr)
+        {
+            string[] network = new string[1];
+            network[0] = "Not Implemented";
+            return network;
+        }
+        
+        public static string[] getIPRange(string ipaddr)
+        {
+            string[] network = new string[1];
+            network[0] = "Not Implemented";
+            return network;
+        }
     }
 }
